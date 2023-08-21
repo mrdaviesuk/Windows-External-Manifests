@@ -1,7 +1,7 @@
 # Windows-External-Manifests
-External Manifest Files for Common Windows Applications which alter the Default UAC Elevation Behavior 
+External Manifest Files for Common Windows Applications which alter the Default User Account Control (UAC) Elevation Behavior 
 
-The intention is to allow an alternative behaviour to be triggered by the 
+The intention of using the external manifest is to allow an alternative UAC behaviour to be configured - for example preventing UAC from prompting for elevation when launching applications which have the 'highestAvailable', by replacing this with the 'asInvoker' parameter, allowing them to run without being elevated and without prompting for elevation. Where elevation is required, it is still possible to request elevation using the right-click 'Run as administrator' option provided by Windows. 
 
 ## Creating an External Application Manifest
 
@@ -18,6 +18,16 @@ They were extracted using a mixture of Resoruce Hacker and 7-Zip, where the latt
 ![Resource Hacker Reading Regedit.exe's Manifest](https://github.com/mrdaviesuk/Windows-External-Manifests/blob/769e5d8e8551a57ffb50e51f23f4fdf97ad12672/reshacker-regedit.jpg)
 
 You can learn more about the fun and exiting world of manifest files, and specifically applciation manifest on [Microsoft's Learn website](https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests) 
+
+## Manifest UAC Setting Options
+
+The choices for /MANIFESTUAC:level are as follows:
+
+* level='asInvoker': The application runs at the same permission level as the process that started it. You can elevate the application to a higher permission level by selecting Run as Administrator.
+
+* level='highestAvailable': The application runs at the highest permission level that it can. If the user who starts the application is a member of the Administrators group, this option is the same as level='requireAdministrator'. If the highest available permission level is higher than the level of the opening process, the system prompts for credentials.
+
+* level='requireAdministrator': The application runs using administrator permissions. The user who starts the application must be a member of the Administrators group. If the opening process isn't running with administrative permissions, the system prompts for credentials.
 
 ## Configuring Windows to Use External Application Manifests
 
