@@ -15,6 +15,8 @@ I have created the examples contained with this repository by extracting the man
 
 They were extracted using a mixture of Resoruce Hacker and 7-Zip, where the latter provides by far the easiest option simply by opening the target file and browsing to the Manifest "subfolder" (e.g., C:\Windows\System32\Taskmgr.exe\.rsrc\MANIFEST) and extracting the '1' file contained within it. This can then be adjusted as required and renamed to match the target application. 
 
+![Resource Hacker Reading Regedit.exe's Manifest](https://github.com/mrdaviesuk/Windows-External-Manifests/blob/769e5d8e8551a57ffb50e51f23f4fdf97ad12672/reshacker-regedit.jpg)
+
 You can learn more about the fun and exiting world of manifest files, and specifically applciation manifest on [Microsoft's Learn website](https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests) 
 
 ## Configuring Windows to Use External Application Manifests
