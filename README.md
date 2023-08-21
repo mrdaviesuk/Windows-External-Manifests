@@ -1,7 +1,7 @@
 # Windows-External-Manifests
 External Manifest Files for Common Windows Applications which alter the Default User Account Control (UAC) Elevation Behavior 
 
-The intention of using the external manifest is to allow an alternative UAC behaviour to be configured - for example preventing UAC from prompting for elevation when launching applications which have the 'highestAvailable', by replacing this with the 'asInvoker' parameter, allowing them to run without being elevated and without prompting for elevation. Where elevation is required, it is still possible to request elevation using the right-click 'Run as administrator' option provided by Windows. 
+The intention of using the external manifest is to allow an alternative UAC behaviour to be configured - for example preventing UAC from prompting for elevation when launching applications which don't always require it - but which have the 'highestAvailable', by replacing this with the 'asInvoker' parameter, allowing them to run without being elevated and without prompting for elevation. Where elevation is required, it is still possible to request elevation using the right-click 'Run as administrator' option provided by Windows. 
 
 ## Creating an External Application Manifest
 
@@ -21,13 +21,19 @@ You can learn more about the fun and exiting world of manifest files, and specif
 
 ## Manifest UAC Setting Options
 
-The choices for /MANIFESTUAC:level are as follows:
+We can see the 'requestedExecutionLevel' in the Resource Hacker screenshot above, which is currently set to 'highestAvailable' the other options are as follows:
 
 * level='asInvoker': The application runs at the same permission level as the process that started it. You can elevate the application to a higher permission level by selecting Run as Administrator.
 
 * level='highestAvailable': The application runs at the highest permission level that it can. If the user who starts the application is a member of the Administrators group, this option is the same as level='requireAdministrator'. If the highest available permission level is higher than the level of the opening process, the system prompts for credentials.
 
 * level='requireAdministrator': The application runs using administrator permissions. The user who starts the application must be a member of the Administrators group. If the opening process isn't running with administrative permissions, the system prompts for credentials.
+
+You can find more info on [Microsoft's Learn website]([https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests](https://learn.microsoft.com/en-us/cpp/build/reference/manifestuac-embeds-uac-information-in-manifest?view=msvc-170))
+
+## AsInvoker, requireAdministrator Manifests
+
+I've created some manifest files, stored in the respective folders which correspond to the setting. Note that applying these changes will alter the experience of these applications for all users of the system - which may cause changes in the experience currently seen for users who are members of 'Administrators', of the 'Power Users' legacy security group. 
 
 ## Configuring Windows to Use External Application Manifests
 
@@ -42,5 +48,5 @@ The choices for /MANIFESTUAC:level are as follows:
 6. Enter Value Data '1' and ensure Decimal is selected
 7. Click 'OK'
 
-There are .reg files included the repository, to add and remove this entry. 
+There are .reg files included the Registry folder, to both add and remove this entry. 
 
