@@ -1,7 +1,10 @@
 # Windows-External-Manifests
-External Manifest Files for Common Windows Applications which alter the Default User Account Control (UAC) Elevation Behavior 
 
-The intention of using the external manifest is to allow an alternative UAC behaviour to be configured - for example preventing UAC from prompting for elevation when launching applications which don't always require it - but which have the 'highestAvailable', by replacing this with the 'asInvoker' parameter, allowing them to run without being elevated and without prompting for elevation. Where elevation is required, it is still possible to request elevation using the right-click 'Run as administrator' option provided by Windows. 
+This repository contains some modified External Manifest Files for Common Windows Applications, which alter the Default User Account Control (UAC) Elevation Behavior. 
+
+The intention of using the external manifest is to allow an alternative UAC behaviour to be configured - for example preventing UAC from prompting for elevation when launching applications which don't always require it - but which have the 'highestAvailable'. By replacing 'highestAvailable'  with the 'asInvoker' parameter, applications can run without being elevated and without prompting for elevation. Where elevation is required, it is still possible to request elevation using the right-click 'Run as administrator' option provided by Windows. 
+
+> Note that applying these changes will alter the experience of these applications for all users of the system - which may cause changes in the experience currently seen for users who are members of 'Administrators', of the 'Power Users' legacy security group. 
 
 ## Creating an External Application Manifest
 
@@ -33,7 +36,7 @@ You can find more info on [Microsoft's Learn website]([https://learn.microsoft.c
 
 ## AsInvoker, requireAdministrator Manifests
 
-I've created some manifest files, stored in the respective folders which correspond to the setting. Note that applying these changes will alter the experience of these applications for all users of the system - which may cause changes in the experience currently seen for users who are members of 'Administrators', of the 'Power Users' legacy security group. 
+I've created some manifest files, stored in the respective folders which correspond to the setting. 
 
 ## Configuring Windows to Use External Application Manifests
 
