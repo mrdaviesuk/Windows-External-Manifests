@@ -4,7 +4,7 @@ This repository contains some modified External Manifest Files for Common Window
 
 The intention of using the external manifest is to allow an alternative UAC behaviour to be configured - for example preventing UAC from prompting for elevation when launching applications which don't always require it - but which have the 'highestAvailable' set by default, forcing elevation for certain user types. Replacing 'highestAvailable' with the 'asInvoker' parameter, applications can run without being elevated and without prompting for elevation. Where elevation is required, it is still possible to request elevation using the right-click 'Run as administrator' option provided by Windows. 
 
-> Note that applying these changes will alter the experience of these applications for all users of the system - which may cause changes in the experience currently seen for users who are members of 'Administrators', of the 'Power Users' legacy security group. 
+> Note that applying these changes will alter the experience of these applications for all users of the system - which may cause changes in the experience currently seen for users who are members of 'Administrators', or the 'Power Users' legacy security group. 
 
 ## Creating an External Application Manifest
 
